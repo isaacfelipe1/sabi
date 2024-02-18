@@ -18,7 +18,7 @@ public class Pessoa {
     private String email;
     private String cpf;
     private Usuario tipoUsuario;
-    private String telefone; // Adicionado campo telefone
+    private String telefone; 
 
     // Construtor vazio
     public Pessoa() {

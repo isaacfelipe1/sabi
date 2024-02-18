@@ -4,7 +4,6 @@ import com.biblioteca.sabi.Emprestimo;
 import com.biblioteca.sabi.repositories.EmprestimoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -35,7 +34,7 @@ public class EmprestimoController {
         Emprestimo emprestimo = emprestimoRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Emprestimo não encontrado com id: " + id));
 
-        // Atualizar os campos do emprestimo com os dados do emprestimoDetails
+        
         emprestimo.setDataEmprestimo(emprestimoDetails.getDataEmprestimo());
         emprestimo.setDataDevolucao(emprestimoDetails.getDataDevolucao());
         emprestimo.setStatus(emprestimoDetails.getStatus());

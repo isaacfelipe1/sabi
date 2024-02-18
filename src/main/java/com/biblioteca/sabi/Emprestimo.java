@@ -16,7 +16,6 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name="tb_emprestimo")
 public class Emprestimo {
-    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id; 

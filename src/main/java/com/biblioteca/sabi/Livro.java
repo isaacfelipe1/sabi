@@ -1,6 +1,5 @@
 package com.biblioteca.sabi;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -19,16 +18,12 @@ public class Livro {
     private String titulo;
     private String autor;
     private String genero;
-    
-    @Column(name = "ano_publicacao") // Alteração aqui
-    private String anoPublicacao; 
-    
+    private Integer anoPublicacao; 
     private String editora;
-    private Integer numPaginas; 
-
-    // Adicionando associação com Colecao
+    private Integer numPaginas;
+ 
     @ManyToOne
-    @JoinColumn(name="colecao_id")
+    @JoinColumn(name = "colecao_id") 
     private Colecao colecao;
 
     // Construtor padrão
@@ -36,16 +31,16 @@ public class Livro {
     }
     
     // Construtor com parâmetros
-    public Livro(Integer livro_id, String nome, String titulo, String autor, String genero, String anoPublicacao, String editora, Integer numPaginas, Colecao colecao) {
+    public Livro(Integer livro_id, String nome, String titulo, String autor,String genero, Integer anoPublicacao, String editora,Integer numPaginas, Colecao colecao) {
         this.livro_id = livro_id;
         this.nome = nome;
         this.titulo = titulo;
         this.autor = autor;
         this.genero = genero;
-        this.anoPublicacao = anoPublicacao;
+        this.anoPublicacao=anoPublicacao;
         this.editora = editora;
         this.numPaginas = numPaginas;
-        this.colecao = colecao; // Inicializando a associação com Colecao
+        this.colecao = colecao; 
     }
 
     public Integer getLivro_id() {
@@ -87,15 +82,14 @@ public class Livro {
     public void setGenero(String genero) {
         this.genero = genero;
     }
-
-    public String getAnoPublicacao() {
-        return anoPublicacao;
+    
+    public void setAnoPublicacao(Integer anoPublicacao) {
+    	this.anoPublicacao=anoPublicacao;
     }
-
-    public void setAnoPublicacao(String anoPublicacao) {
-        this.anoPublicacao = anoPublicacao;
+    public Integer getAnoPublicacao() {
+    	return anoPublicacao;
     }
-
+    
     public String getEditora() {
         return editora;
     }
@@ -120,4 +114,3 @@ public class Livro {
         this.colecao = colecao;
     }
 }
-
