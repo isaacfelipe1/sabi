@@ -46,7 +46,6 @@ public class PessoaController {
         pessoa.setEmail(pessoaDetails.getEmail());
         pessoa.setCpf(pessoaDetails.getCpf());
         pessoa.setTipoUsuario(pessoaDetails.getTipoUsuario());
-        pessoa.setTelefone(pessoaDetails.getTelefone());
         return pessoaRepository.save(pessoa);
     }
 

@@ -7,7 +7,7 @@ import com.biblioteca.sabi.Livro;
 
 @Repository
 public interface LivroRepository extends JpaRepository<Livro, Integer> {
-    // Aqui você pode adicionar métodos de consulta personalizados, se necessário
+    
 	
 	
 }

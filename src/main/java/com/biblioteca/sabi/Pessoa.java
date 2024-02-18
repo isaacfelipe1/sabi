@@ -1,40 +1,40 @@
 package com.biblioteca.sabi;
+
 import com.biblioteca.sabi.enums.Usuario;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="tb_pessoa")
 public class Pessoa {
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int pessoa_id; 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int pessoa_id; 
     private String nome;
     private String matricula;
     private String email;
     private String cpf;
     private Usuario tipoUsuario;
-    @OneToOne
-    @JoinColumn(name="telefone_id")
-    private Telefone telefone;
+    private String telefone; // Adicionado campo telefone
+
     // Construtor vazio
     public Pessoa() {
     }
- // Construtor com parâmetros
-    public Pessoa(int pessoa_id, String nome, String matricula, String email, String cpf, Usuario tipoUsuario, Telefone telefone) {
+
+    // Construtor com parâmetros, incluindo telefone
+    public Pessoa(int pessoa_id, String nome, String matricula, String email, String cpf, Usuario tipoUsuario, String telefone) {
         this.pessoa_id = pessoa_id;
         this.nome = nome;
         this.matricula = matricula;
         this.email = email;
         this.cpf = cpf;
         this.tipoUsuario = tipoUsuario;
-        this.telefone = telefone; // Inicializando a associação com Telefone
+        this.telefone = telefone; // Inicializando o campo telefone
     }
+
     // Getters e Setters
     public int getPessoa_id() {
         return pessoa_id;
@@ -83,14 +83,14 @@ public class Pessoa {
     public void setTipoUsuario(Usuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
-    public Telefone getTelefone() {
+
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(Telefone telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 }
-    
-    
+
 
