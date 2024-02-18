@@ -1,4 +1,6 @@
 package com.biblioteca.sabi;
+
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,11 +19,14 @@ public class Livro {
     private String titulo;
     private String autor;
     private String genero;
+    
+    @Column(name = "ano_publicacao") // Alteração aqui
     private String anoPublicacao; 
+    
     private String editora;
     private Integer numPaginas; 
 
-    //Adicionando associação com Colecao
+    // Adicionando associação com Colecao
     @ManyToOne
     @JoinColumn(name="colecao_id")
     private Colecao colecao;
@@ -43,74 +48,72 @@ public class Livro {
         this.colecao = colecao; // Inicializando a associação com Colecao
     }
 
-    // Getters
     public Integer getLivro_id() {
         return livro_id;
+    }
+
+    public void setLivro_id(Integer livro_id) {
+        this.livro_id = livro_id;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public String getTitulo() {
-        return titulo;
-    }
-
-    public String getAutor() {
-        return autor;
-    }
-
-    public String getGenero() {
-        return genero;
-    }
-
-    public String getAnoPublicacao() {
-        return anoPublicacao;
-    }
-
-    public String getEditora() {
-        return editora;
-    }
-
-    public Integer getNumPaginas() {
-        return numPaginas;
-    }
-
-    public Colecao getColecao() {
-        return colecao;
-    }
-
-    // Setters
-    public void setLivro_id(Integer livro_id) {
-        this.livro_id = livro_id;
-    }
-
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public String getTitulo() {
+        return titulo;
     }
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
 
+    public String getAutor() {
+        return autor;
+    }
+
     public void setAutor(String autor) {
         this.autor = autor;
+    }
+
+    public String getGenero() {
+        return genero;
     }
 
     public void setGenero(String genero) {
         this.genero = genero;
     }
 
+    public String getAnoPublicacao() {
+        return anoPublicacao;
+    }
+
     public void setAnoPublicacao(String anoPublicacao) {
         this.anoPublicacao = anoPublicacao;
+    }
+
+    public String getEditora() {
+        return editora;
     }
 
     public void setEditora(String editora) {
         this.editora = editora;
     }
 
+    public Integer getNumPaginas() {
+        return numPaginas;
+    }
+
     public void setNumPaginas(Integer numPaginas) {
         this.numPaginas = numPaginas;
+    }
+
+    public Colecao getColecao() {
+        return colecao;
     }
 
     public void setColecao(Colecao colecao) {
